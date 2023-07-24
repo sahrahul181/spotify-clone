@@ -31,8 +31,6 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
     const { error } = await supabaseClient.auth.signOut();
     player.reset();
 
-  
-
     router.refresh();
 
     if (error) {
@@ -66,10 +64,16 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
         </div>
 
         <div className="flex md:hidden gap-x-2 items-center">
-          <button className="rounded-full flex items-center justify-center bg-white p-2 hover:opacity-75 transition">
+          <button
+            className="rounded-full flex items-center justify-center bg-white p-2 hover:opacity-75 transition"
+            onClick={() => router.push("/")}
+          >
             <HiHome className="text-black" size={20} />
           </button>
-          <button className="rounded-full flex items-center justify-center bg-white p-2 hover:opacity-75 transition">
+          <button
+            className="rounded-full flex items-center justify-center bg-white p-2 hover:opacity-75 transition"
+            onClick={() => router.push("/search")}
+          >
             <BiSearch className="text-black" size={20} />
           </button>
         </div>
